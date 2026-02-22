@@ -16,7 +16,7 @@ class SolutionSort:
 
 
 class Solution:
-    # Time: O(?)
+    # Time: O(m * n)
     # Space: O(m * n)
     def group_anagrams(self, strs: list[str]) -> list[list[str]]:
         ans = defaultdict(list)
@@ -27,7 +27,7 @@ class Solution:
             for char in s:
                 count[ord(char) - ord("a")] += 1
 
-            print(tuple(count))
+            # print(tuple(count))
 
             ans[tuple(count)].append(s)
 
