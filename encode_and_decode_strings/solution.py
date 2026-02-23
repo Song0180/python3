@@ -1,12 +1,6 @@
 class Solution:
-    # Time: O(?)
-    # Space: O(?)
-    """
-    hello, hi, 3y#ou
-
-    5hello#2hi#33y#ou
-    """
-
+    # Time: O(n)
+    # Space: O(n)
     def encode(self, strs: list[str]) -> str:
         encoded = ""
 
@@ -15,6 +9,8 @@ class Solution:
 
         return encoded
 
+    # Time: O(n)
+    # Space: O(n)
     def decode(self, s: str) -> list[str]:
         decoded = []
         i = 0
