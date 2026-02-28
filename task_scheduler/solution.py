@@ -17,10 +17,14 @@ class Solution:
             cycle += 1
 
             if heap:
+                # remember, f is negative
                 f = heapq.heappop(heap)
+
+                # f + 1 means decrement current frequency
                 if f + 1 != 0:
                     q.append((f + 1, cycle + n))
 
+            # task become available at current cycle, add to heap
             if q and q[0][1] == cycle:
                 heapq.heappush(heap, q.popleft()[0])
 
