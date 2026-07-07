@@ -58,8 +58,8 @@ class SolutionHeap2:
 
 
 class Solution:
-    # Time:
-    # Space:
+    # Time: O(n)
+    # Space: O(n)
     def top_k_frequent(self, nums: list[int], k: int) -> list[int]:
         freq = Counter(nums)
 
