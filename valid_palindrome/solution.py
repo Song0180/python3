@@ -1,6 +1,19 @@
 class Solution:
-    # Time: O(?)
-    # Space: O(?)
+    # Time: O(n)
+    # Space: O(1)
     def is_palindrome(self, s: str) -> bool:
-        # TODO: Implement is_palindrome
-        return False
+        l, r = 0, len(s) - 1
+
+        while l < r:
+            while not s[l].isalnum() and l < r:
+                l += 1
+            while not s[r].isalnum() and l < r:
+                r -= 1
+
+            if s[l].lower() != s[r].lower():
+                return False
+
+            l += 1
+            r -= 1
+
+        return True
