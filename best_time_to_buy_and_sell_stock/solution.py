@@ -1,6 +1,18 @@
 class Solution:
-    # Time: O(?)
-    # Space: O(?)
+    # Time: O(n)
+    # Space: O(1)
     def max_profit(self, prices: list[int]) -> int:
-        # TODO: Implement max_profit
-        return 0
+        profit = 0
+        l, r = 0, 1
+
+        while r < len(prices):
+            if prices[l] < prices[r]:
+                profit = max(prices[r] - prices[l], profit)
+                # continue to check next sell
+                r += 1
+            else:
+                # buy again with a cheaper price
+                l = r
+                r += 1
+
+        return profit
