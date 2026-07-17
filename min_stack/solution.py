@@ -1,30 +1,29 @@
 class MinStack:
-    # Time: O(?)
-    # Space: O(?)
+    # Time: O(1)
+    # Space: O(1)
     def __init__(self) -> None:
-        # TODO: Initialize MinStack
-        pass
+        self.stack = []
+        self.min_stack = []
 
-    # Time: O(?)
-    # Space: O(?)
+    # Time: O(1)
+    # Space: O(1)
     def push(self, val: int) -> None:
-        # TODO: Implement push
-        pass
+        self.stack.append(val)
+        min_val = min(val, self.min_stack[-1] if self.min_stack else val)
+        self.min_stack.append(min_val)
 
-    # Time: O(?)
-    # Space: O(?)
+    # Time: O(1)
+    # Space: O(1)
     def pop(self) -> None:
-        # TODO: Implement pop
-        pass
+        self.stack.pop()
+        self.min_stack.pop()
 
-    # Time: O(?)
-    # Space: O(?)
+    # Time: O(1)
+    # Space: O(1)
     def top(self) -> int:
-        # TODO: Implement top
-        return 0
+        return self.stack[-1]
 
     # Time: O(?)
     # Space: O(?)
     def get_min(self) -> int:
-        # TODO: Implement get_min
-        return 0
+        return self.min_stack[-1]
