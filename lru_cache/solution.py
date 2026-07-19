@@ -4,8 +4,8 @@ class Node:
 
 
 class LRUCache:
-    # Time: O(?)
-    # Space: O(?)
+    # Time: O(1)
+    # Space: O(n)
     def __init__(self, capacity: int) -> None:
         self.cap = capacity
         self.cache = {}
@@ -22,8 +22,8 @@ class LRUCache:
         node.prev, node.next = prev, nxt
         prev.next = nxt.prev = node
 
-    # Time: O(?)
-    # Space: O(?)
+    # Time: O(1)
+    # Space: O(1)
     def get(self, key: int) -> int:
         if key in self.cache:
             self.remove(self.cache[key])
@@ -31,8 +31,8 @@ class LRUCache:
             return self.cache[key].val
         return -1
 
-    # Time: O(?)
-    # Space: O(?)
+    # Time: O(1)
+    # Space: O(1)
     def put(self, key: int, value: int) -> None:
         if key in self.cache:
             self.remove(self.cache[key])
