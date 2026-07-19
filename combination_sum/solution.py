@@ -4,15 +4,20 @@ class Solution:
         sub_ans = []
 
         def dfs(i: int, target: int):
-            if target < 0 or i == len(candidates):
-                return
             if target == 0:
                 ans.append(sub_ans.copy())
                 return
+            if target < 0 or i == len(candidates):
+                return
 
+            # choose i
             sub_ans.append(candidates[i])
+            # i is still reusable
             dfs(i, target - candidates[i])
+
+            # skip i
             sub_ans.pop()
+            # i is skipped, only later numbers can be used
             dfs(i + 1, target)
 
         dfs(0, target)
