@@ -12,8 +12,10 @@ class Solution:
                 return
 
             # make selections in later chars
+            # O(n)
             for j in range(i, len(s)):
                 # skip non-palindromes
+                # O(n)
                 if not self.is_valid(s[i : j + 1]):
                     continue
 
