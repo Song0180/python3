@@ -24,6 +24,29 @@ class Solution:
 
         return ans
 
+    def combination_sum_loop_style(
+        self, candidates: list[int], target: int
+    ) -> list[list[int]]:
+        res = []
+        sub = []
+
+        def dfs(start, remain):
+            if remain == 0:
+                res.append(sub.copy())
+                return
+
+            # decide in all available options, rather than a binary decision, so only 1 dfs call
+            for j in range(start, len(candidates)):
+                if candidates[j] > remain:
+                    continue
+
+                sub.append(candidates[j])
+                dfs(j, remain - candidates[j])
+                sub.pop()
+
+        dfs(0, target)
+        return res
+
     def combination_sum_dp(self, candidates: list[int], target: int) -> list[list[int]]:
         dp = [[] for _ in range(target + 1)]
 
